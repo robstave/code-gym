@@ -1,3 +1,5 @@
+// @ts-check	
+
 /**
  * Remove duplicates from a sorted array in-place and return the new length.
  * This function modifies the array in place to contain only unique elements
