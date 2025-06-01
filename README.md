@@ -1,6 +1,9 @@
 # Code Gym
 
+![Code Gym Logo](images/cg.png)
+
 A personal repository for practicing coding exercises and improving programming skills.
+
 
 ## Purpose
 
