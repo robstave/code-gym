@@ -75,6 +75,23 @@ func TestReverseInts(t *testing.T) {
 	}
 }
 
+func TestReverseIntsWithAppend(t *testing.T) {
+	tests := []struct {
+		input []int
+		want  []int
+	}{
+		{[]int{1, 2, 3, 4}, []int{4, 3, 2, 1}},
+		{[]int{}, []int{}},
+		{[]int{5}, []int{5}},
+	}
+	for _, tc := range tests {
+		got := ReverseIntsWithAppend(tc.input)
+		if !equalSlices(got, tc.want) {
+			t.Errorf("ReverseInts(%v) = %v; want %v", tc.input, got, tc.want)
+		}
+	}
+}
+
 func TestFindMax(t *testing.T) {
 	tests := []struct {
 		input []int

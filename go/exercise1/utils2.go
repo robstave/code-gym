@@ -39,12 +39,33 @@ func FilterEvenInts(nums []int) []int {
 
 // ReverseInts reverses the order of integers in a slice.
 func ReverseInts(nums []int) []int {
-	results := make([]int, len(nums))
-	copy(results, nums)
-	for i, j := 0, len(results)-1; i < j; i, j = i+1, j-1 {
-		results[i], results[j] = results[j], results[i]
+
+	for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+	return nums
+}
+
+func ReverseIntsWithAppend(nums []int) []int {
+	results := make([]int, 0, len(nums))
+	for i := len(nums) - 1; i >= 0; i-- {
+		results = append(results, nums[i])
 	}
 	return results
+}
+
+// ReverseIntsRecursive reverses the order of integers in a slice using recursion.
+func ReverseIntsRecursive(nums []int) []int {
+	// Base case: empty slice or single element
+	if len(nums) <= 1 {
+		// Create a new slice to avoid modifying the original
+		result := make([]int, len(nums))
+		copy(result, nums)
+		return result
+	}
+
+	// Recursive case: first element goes to the end, recurse on the rest
+	return append(ReverseIntsRecursive(nums[1:]), nums[0])
 }
 
 // FindMax finds the maximum integer in a slice.
