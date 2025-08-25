@@ -27,16 +27,12 @@ var moveZeroes = function (nums) {
     return nums;
   }
 
-  for (i = 0; i < l; i++) {
-    if (nums[i] != 0) {
-      nums[pointer] = nums[i];
-      if (pointer != i) {
-        [nums[i], nums[pointer]] = [nums[pointer], nums[i]];
+  for (let i = 0; i < l; i++) {
+    if (nums[i] !== 0) {
+      if (pointer !== i) {
+        [nums[pointer], nums[i]] = [nums[i], nums[pointer]];
       }
       pointer++;
-
-      //
-    } else {
     }
   }
 

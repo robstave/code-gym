@@ -9,17 +9,17 @@ var lengthOfLongestSubstring = function (s) {
   let start = 0;
   let end = 0;
 
-  while (end < l ) {
-    ss = s.substring(start, end+1);
-  console.log(start, end, ss);
+  while (end < l) {
+    ss = s.substring(start, end + 1);
+    console.log(start, end, ss);
     if (hasDup(ss)) {
       start++;
-      end=start+max;
-      continue
+      end = start + max;
+      continue;
     }
 
     max = Math.max(max, ss.length);
- 
+
     end++;
   }
 
@@ -41,34 +41,31 @@ var hasDup = function (s) {
   return false;
 };
 
-
 let l = lengthOfLongestSubstring("pwwkew");
 if (l != 3) {
-    console.log("fail",l);
+  console.log("fail", l);
 } else {
-    console.log("pass");
+  console.log("pass");
 }
 
-l =lengthOfLongestSubstring("dvdh");
+l = lengthOfLongestSubstring("dvdh");
 if (l != 3) {
-    console.log("fail",l);
+  console.log("fail", l);
 } else {
-    console.log("pass");
+  console.log("pass");
 }
 
 l = lengthOfLongestSubstring("au");
 if (l != 2) {
-    console.log("fail",l,l);
+  console.log("fail", l, l);
 } else {
-    console.log("pass");
-
+  console.log("pass");
 }
 
 l = lengthOfLongestSubstring("qwertyuasdfguzxcvbnm7463");
 if (l != 17) {
-    console.log("fail",l,l);
+  console.log("fail", l, l);
 } else {
-    console.log("pass");
-
+  console.log("pass");
 }
 //""
