@@ -1,6 +1,8 @@
 # dependencies
 node_modules/
 
+scratch/
+
 # logs
 npm-debug.log*
 yarn-debug.log*

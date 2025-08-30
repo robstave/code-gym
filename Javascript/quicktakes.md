@@ -215,3 +215,39 @@ const isPalindrome = (val) => {
 // Variant ignoring case/non-alphanumerics:
 // const t = s.toLowerCase().replace(/[^a-z0-9]/g, ''); return t === [...t].reverse().join('');
 ```
+
+## Add to beginning (Array.prototype.unshift)
+
+```js
+const fruits = ['Banana', 'Orange'];
+
+// Add one (returns new length)
+fruits.unshift('Apple');
+// ['Apple', 'Banana', 'Orange']
+
+// Add multiple
+fruits.unshift('Kiwi', 'Mango');
+// ['Kiwi', 'Mango', 'Apple', 'Banana', 'Orange']
+
+// Note: unshift is O(n) (shifts existing elements). For immutable updates:
+const next = ['Grape', ...fruits];
+```
+
+
+
+## Flatten an array
+
+```js
+// 1) Deep flatten (recursive)
+const flattenDeep = (arr) =>
+    arr.reduce((acc, v) => acc.concat(Array.isArray(v) ? flattenDeep(v) : v), []);
+
+// 2) One-level (shallow) flatten
+const flatten1 = (arr) => [].concat(...arr);
+
+// 3) Built-in flat(depth)
+const arr1 = [1, 2, [3, 4, [5, 6]]];
+arr1.flat();          // [1, 2, 3, 4, [5, 6]]
+arr1.flat(2);         // [1, 2, 3, 4, 5, 6]
+arr1.flat(Infinity);  // deep flatten
+```
