@@ -80,6 +80,29 @@ class LinkedList {
     return null;
   }
 
+  // Return node at zero-based index (or null if out of range)
+  getMiddle() {
+    let ptr = 0;
+
+    if (this.head == null) {
+      return null;
+    }
+    let node = this.head;
+    let middle = this.head;
+
+    let count = 0;
+
+    while (node.next != null) {
+      node = node.next;
+      count++;
+      if (count % 2 == 0) {
+        middle = middle.next;
+      }
+    }
+
+    return middle;
+  }
+
   getTail() {
     let node = this.head;
 
@@ -190,27 +213,41 @@ class LinkedList {
     return false;
   }
 
+breakCycle() {
+    let slow = this.head;
+    let slowBehind = null;
+    
+    let fast = this.head;
 
-  arrayToList(arr){
-   
-    let ptr = null
-    this.head = null
+    while (fast && fast.next) {
+    
+        slowBehind = slow
+    
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow === fast) {
+        slowBehind.next = null
+        return true;
+      }
+    }
+    return false;
+  }
 
-    arr.forEach(element => {
-        let node = new ListNode(element)
-      
-        if (this.head == null){
+  arrayToList(arr) {
+    let ptr = null;
+    this.head = null;
 
-            this.head = node
-            ptr = node
-        } else {
-            ptr.next = node
-             ptr = node
-        }
-        
+    arr.forEach((element) => {
+      let node = new ListNode(element);
+
+      if (this.head == null) {
+        this.head = node;
+        ptr = node;
+      } else {
+        ptr.next = node;
+        ptr = node;
+      }
     });
-
-
   }
 }
 

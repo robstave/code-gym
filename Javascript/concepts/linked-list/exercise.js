@@ -44,9 +44,16 @@ console.log("delete element at index 3");
 myList.deleteAtIndex(3);
 console.log(myList.toArray());
 
+console.log("print middle");
+console.log(myList.getMiddle().data);
+
 console.log("delete element at index 0");
 myList.deleteAtIndex(0);
 console.log(myList.toArray());
+
+console.log("print middle");
+console.log(myList.getMiddle().data);
+
 
 console.log("delete element at index 4");
 myList.deleteAtIndex(4);
@@ -56,18 +63,20 @@ console.log("reverse");
 myList.reverse();
 console.log(myList.toArray());
 
-
-
-
 console.log("Cycle test");
-tail = myList.getTail()
-node = myList.getAtIndex(1)
+tail = myList.getTail();
+node = myList.getAtIndex(1);
 console.log(`connecting tail ${tail.data} to node ${node.data}`);
 tail.next = node;
-console.log("Cycle created");   
+console.log("Cycle created");
 console.log("has cycle?", myList.hasCycle());
 
+console.log("Break Cycle");
+myList.breakCycle()
+console.log("has cycle?", myList.hasCycle());
+
+
 console.log("reset with array");
-myList.arrayToList([1,2,3,4,5])   
+myList.arrayToList([1, 2, 3, 4, 5]);
 
 console.log(myList.toArray());
