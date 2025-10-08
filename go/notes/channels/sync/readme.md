@@ -1,1 +1,1 @@
-https: //gobyexample.com/channel-synchronization
+https: //cristiancurteanu.com/7-powerful-golang-concurrency-patterns-that-will-transform-your-code-in-2025/
