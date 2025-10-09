@@ -6,7 +6,7 @@ package util
 func UniqueInts1(nums []int) []int {
 
 	seen := make(map[int]bool)
-	results := make([]int, 0, len(nums))
+	results := make([]int, 0)
 
 	for _, val := range nums {
 
