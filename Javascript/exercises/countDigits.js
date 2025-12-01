@@ -36,6 +36,30 @@ function countDigits2(s) {
   return count;
 }
 
+
+// Count runs of consecutive digits (0-9) as numbers
+// Examples: "0" => 1, "003" => 1, "9 8 7" => 3
+function countDigits3(s) {
+  let count = 0;
+  let firstDigit = false;
+  for (let i = 0; i < s.length; i++) {
+    if (isDigit(s[i])) {
+      if (!firstDigit) {
+        firstDigit == true
+        count++;
+      }
+ 
+    } else {
+
+      firstDigit = false;
+    }
+  }
+
+   
+  return count;
+}
+
+
 // --- Test harness and grouped tests ---
 function expectEqual(name, actual, expected) {
   const pass = actual === expected;
@@ -69,3 +93,17 @@ expectEqual("Digits2: punctuation", countDigits2("a-12.3"), 2); // 12,3
 expectEqual("Digits2: spaces", countDigits2("9 8 7"), 3); // 9,8,7
 expectEqual("Digits2: single zero", countDigits2("0"), 1); // 0
 expectEqual("Digits2: 101", countDigits2("101"), 1); // 101
+
+console.log("\n=== countDigits3 (digit runs) ===");
+expectEqual("Digits3: 23hh5h6", countDigits2("23hh5h6"), 3); // 23,5,6
+expectEqual("Digits3: mixed spaces", countDigits2("23h3ki 47 9h5h6"), 6); // 23,3,47,9,5,6
+expectEqual("Digits3: empty", countDigits2(""), 0);
+expectEqual("Digits3: no digits", countDigits2("abc def"), 0);
+expectEqual("Digits3: leading", countDigits2("12abc"), 1); // 12
+expectEqual("Digits3: trailing", countDigits2("abc34"), 1); // 34
+expectEqual("Digits3: zeros mixed", countDigits2("10a0b05"), 3); // 10,0,05
+expectEqual("Digits3: leading zeros", countDigits2("007bond"), 1); // 007
+expectEqual("Digits3: punctuation", countDigits2("a-12.3"), 2); // 12,3
+expectEqual("Digits3: spaces", countDigits2("9 8 7"), 3); // 9,8,7
+expectEqual("Digits3: single zero", countDigits2("0"), 1); // 0
+expectEqual("Digits3: 101", countDigits2("101"), 1); // 101

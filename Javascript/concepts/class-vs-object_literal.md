@@ -151,6 +151,8 @@ This is a clean way to enforce singletons:
 * `#instance` is private (cannot be tampered with externally).
 * `getInstance()` is the only entry point.
 
+
+
 **Guidance:**
 
 * Use singletons for resources where multiple copies would be wrong or wasteful.
@@ -162,9 +164,20 @@ This is a clean way to enforce singletons:
 
 JavaScript supports **truly private** fields and methods using the `#` syntax.
 
+### Is `#` a compiler special or just convention?
+
+**Answer: It's a language feature (enforced by the JavaScript engine).**
+
+- The `#` prefix is **not** a naming convention like `_privateField` (which is just a hint to developers).
+- It's part of the **ECMAScript specification** (ES2022+) and enforced at runtime.
+- Attempting to access a private field from outside the class throws a **SyntaxError** (caught at parse time) or **TypeError** (at runtime).
+- Private fields are stored in a special internal slot that's inaccessible from outside the class, even via tricks like `obj['#field']` or reflection.
+
+**Example:**
+
 ```js
 class Counter {
-  #count = 0; // private field
+  #count = 0; // private field (truly private, enforced by the engine)
 
   increment() { this.#count++; }
   value() { return this.#count; }
@@ -173,10 +186,10 @@ class Counter {
 const c = new Counter();
 c.increment();
 console.log(c.value()); // 1
-// console.log(c.#count); ❌ SyntaxError
+// console.log(c.#count); ❌ SyntaxError: Private field '#count' must be declared in an enclosing class
 ```
 
-You can also create private methods:
+**Private methods work the same way:**
 
 ```js
 class User {
@@ -187,13 +200,28 @@ class User {
     this.name = this.#formatName(name);
   }
 }
+
+const u = new User();
+u.setName("  alice  ");
+console.log(u.name); // "ALICE"
+// u.#formatName("test"); ❌ SyntaxError
 ```
+
+**Key differences: `#private` vs `_convention`**
+
+| Feature              | `#private` (language feature) | `_convention` (just a hint)    |
+|----------------------|-------------------------------|--------------------------------|
+| Enforced by engine?  | ✅ Yes (SyntaxError/TypeError) | ❌ No (developers can ignore)  |
+| Accessible outside?  | ❌ Never                       | ✅ Yes (not protected)         |
+| Works with `static`? | ✅ Yes                         | ✅ Yes (but still public)      |
+| Browser support      | Modern (ES2022+)              | Always (just a name)           |
 
 **Notes:**
 
-* Enforced by the language, not by convention.
+* Private fields are enforced by the language, not by convention.
 * Works with `static` fields as well: `static #cache = new Map();`
 * Perfect for encapsulation inside singletons (e.g., `Logger.#instance`).
+* Older convention (`_field`) is still common in legacy code, but `#field` is the modern, secure approach.
 
 ---
 
