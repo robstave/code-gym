@@ -3,13 +3,15 @@
 // (DOS) attacks, by implementing a rate limiter. Build a function called
 //  <code>isAllowed</code>
 
-//This function should deny any request from a
+//  This function should deny any request from a
 //  unique client that exceeds the threshold of 100
 //  requests within the last second.
 
 // tests:  99 requests from clientA in a second is pass
 // 101 from ClientB is a fail
 // 50 requests followed by 80 a second later is a pass
+
+
 
 class RateLimiter {
   // Write your code here

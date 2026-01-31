@@ -3,7 +3,7 @@
 
 
 /*
-given a number, find an array that sums up to zero
+given a number, find an array (of that size ) that sums up to zero
 */
 
 var sumZero = function (n) {
