@@ -49,9 +49,31 @@ for (let num of numSet) {
 }
 // map to set (keys as values)
 let keysSet: Set<number> = new Set(numMap.keys());
-    
+
 ```
 
+### Maps
+
+```typescript
+// loop through a map of string to number
+let myMap: Map<string, number> = new Map([
+    ["a", 1],
+    ["b", 2],
+    ["c", 3]
+]);
+for (let [key, value] of myMap) {
+    console.log(`${key}: ${value}`);
+}
+// loop using forEach
+myMap.forEach((value, key) => {
+    console.log(`${key}: ${value}`);
+});
+
+// loop using entries()
+for (let [key, value] of myMap.entries()) {
+    console.log(`${key}: ${value}`);
+}   
+```
 
 
 ###

@@ -26,28 +26,22 @@ export function usersWithMultipleUniqueActions(
   let actions: Map<string, Set<string>> = new Map<string, Set<string>>();
 
   // capture unique actions
-  for (let i = 0; i < logs.length; i++) {
-    const userId = logs[i].userId;
-    const userAction = logs[i].action;
-
-    // console.log("--" + userId + ":" + userAction);
-
-    if (actions.has(userId)) {
-      let a = actions.get(userId);
-      a.add(userAction);
-      actions.set(userId, a);
-    } else {
-      let userActions: Set<string> = new Set<string>();
-      userActions.add(userAction);
-      actions.set(userId, userActions);
+  for (let {userId, action} of logs) {
+    
+    if (!actions.has(userId)){
+      actions.set(userId, new Set<string>())
     }
+  
+    actions.get(userId)!.add(action) // non-null assertion safe after has/set
+
+    
   }
 
   //console.log(actions);
   let results: string[] = [];
 
   // get list of items that have more that one action
-  for (let [key, value] of actions) {
+  for (const [key, value] of actions) {
     if (value.size > 1) {
       results.push(key);
     }
