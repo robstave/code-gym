@@ -1,13 +1,14 @@
 
 
-Loop
-
+ 
 ## initialization
 
 ```typescript
 
 // initialize an empty map of string to number in ts
 let myMap: Map<string, number> = new Map<string, number>();
+//init the map as a string key with set of numbers as value
+let mapSet: Map<string, Set<number>> = new Map<string, Set<number>>();
 
 // initialize an empty array of strings in ts
 let myArray: string[] = [];
@@ -88,3 +89,40 @@ export function uniqueNumbers(nums: number[]): number[] {
 }
 ```
 
+
+## Sort
+
+```typescript
+items.sort((a, b) => {
+  if (a.score !== b.score) return b.score - a.score;
+  return a.name.localeCompare(b.name);
+});
+
+```
+Hidden gotcha:
+
+localeCompare vs <
+
+
+localeCompare is used for string comparison to handle different character sets and locales correctly. Using `<` or `>` for string comparison may lead to unexpected results, especially with non-ASCII characters.
+
+For example:
+
+```typescript   
+const names = ["Zoe", "Ana", "Émile", "Éric"];
+names.sort((a, b) => a.localeCompare(b));
+console.log(names); // Correctly sorted: ["Ana", "Émile", "Éric
+
+", "Zoe"]
+```
+
+## STrings
+
+### Substrings
+
+```typescript
+
+let str: string = "Hello, TypeScript!";
+let substr1: string = str.substring(0, 5); // "Hello"
+let substr2: string = str.slice(7, 17); // "TypeScript"
+let substr3: string = str.substr(7, 10); // "TypeScript"

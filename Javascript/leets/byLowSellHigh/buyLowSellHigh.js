@@ -1,6 +1,14 @@
-// @ts-check	
-
-
+/* LeetCode: Best Time to Buy and Sell Stock (Easy)
+ *
+ * Problem:
+ * Given an array `prices` where prices[i] is the price of a given stock on day i,
+ * return the maximum profit you can achieve from one transaction (i.e., buy one and sell one share of the stock).
+ * You must buy before you sell. If no profit is possible, return 0.
+ *
+ * See Readme
+ */
+ 
+// @ts-check
 var maxProfit = function(prices) {
 
 
