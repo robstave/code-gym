@@ -5,7 +5,7 @@ the case's README to understand the intended behavior, then review `main.go`.
 Try to explain what goes wrong, give an input that demonstrates it, and suggest
 a fix before opening `ANSWER.md`.
 
-The cases progress from easy to medium:
+The cases range from easy to medium:
 
 | Case | Difficulty |
 | --- | --- |
@@ -19,6 +19,16 @@ The cases progress from easy to medium:
 | [case8](case8/README.md) | Medium |
 | [case9](case9/README.md) | Medium |
 | [case10](case10/README.md) | Medium |
+| [case11](case11/README.md) | Easy |
+| [case12](case12/README.md) | Easy |
+| [case13](case13/README.md) | Easy |
+| [case14](case14/README.md) | Easy |
+| [case15](case15/README.md) | Easy |
+| [case16](case16/README.md) | Medium |
+| [case17](case17/README.md) | Medium |
+| [case18](case18/README.md) | Medium |
+| [case19](case19/README.md) | Medium |
+| [case20](case20/README.md) | Medium |
 
 From this directory, run an exercise with Go:
 
