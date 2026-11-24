@@ -50,7 +50,7 @@ function runTest(testCase, caseNumber) {
 
 // Test cases
 const testCases = [
-  [[1, 4, 5, 7, 18], 12, [1, 3]], // Original test case (4+7=11)
+  [[1, 4, 5, 7, 18], 12, [2, 3]], // Original test case (4+7=11)
   [[2, 7, 11, 15], 9, [0, 1]],    // LeetCode example (2+7=9)
   [[3, 2, 4], 6, [1, 2]],         // Numbers not in order (2+4=6)
   [[3, 3], 6, [0, 1]],            // Same number twice (3+3=6)

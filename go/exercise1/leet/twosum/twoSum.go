@@ -16,13 +16,12 @@ func twoSum(arr []int, target int) []int {
 
 	xMap := make(map[int]int)
 
-	l := len(arr)
-	for i := 0; i < l; i++ {
-		xMap[arr[i]] = i
+	for i, value := range arr {
+		xMap[value] = i
 	}
 
-	for j := 0; j < l; j++ {
-		comp := target - arr[j]
+	for j, v := range arr {
+		comp := target - v
 
 		index, ok := xMap[comp]
 
